@@ -23,14 +23,16 @@ class CreateExcercise extends React.Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/users/").then((res) => {
-      if (res.data.length > 0) {
-        this.setState({
-          users: res.data.map((user) => user.username),
-          username: res.data[0].username,
-        });
-      }
-    });
+    axios
+      .get("https://mern-excercise-tracker.herokuapp.com/users/")
+      .then((res) => {
+        if (res.data.length > 0) {
+          this.setState({
+            users: res.data.map((user) => user.username),
+            username: res.data[0].username,
+          });
+        }
+      });
   }
 
   onChangeUsername(e) {
@@ -71,7 +73,10 @@ class CreateExcercise extends React.Component {
     window.location = "/";
 
     axios
-      .post("http://localhost:5000/excercises/add", excercises)
+      .post(
+        "https://mern-excercise-tracker.herokuapp.com/excercises/add",
+        excercises
+      )
       .then((res) => {
         console.log(res.data);
       });

@@ -28,7 +28,7 @@ class CreateUser extends React.Component {
     console.log(user);
 
     axios
-      .post("http://localhost:5000/users/add", user)
+      .post("https://mern-excercise-tracker.herokuapp.com/users/add", user)
       .then((res) => console.log(res.data));
 
     this.setState({ username: "" });
